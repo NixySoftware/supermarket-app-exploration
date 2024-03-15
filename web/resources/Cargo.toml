@@ -1,0 +1,9 @@
+[package]
+name = "supermarket-web-resources"
+publish = false
+
+authors.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+version.workspace = true

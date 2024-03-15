@@ -4,6 +4,7 @@ members = [
     "web/client",
     "web/database",
     "web/migration",
+    "web/resources",
     "web/server",
 ]
 resolver = "2"

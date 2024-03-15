@@ -4332,6 +4332,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "supermarket-web-resources"
+version = "0.1.0"
+
+[[package]]
 name = "supermarket-web-server"
 version = "0.1.0"
 dependencies = [

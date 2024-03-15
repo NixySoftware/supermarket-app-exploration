@@ -7,14 +7,15 @@
     "private": true,
     "scripts": {},
     "devDependencies": {
-        "@types/node": "^20.11.27",
-        "prettier": "^3.1.1",
-        "prettier-plugin-tailwindcss": "^0.5.11",
+        "@types/node": "^20.11.28",
+        "lucide-static": "^0.358.0",
+        "next-auth": "github:nextauthjs/next-auth",
+        "prettier": "^3.2.5",
+        "prettier-plugin-tailwindcss": "^0.5.12",
         "tailwindcss": "^3.4.1",
         "tailwindcss-animate": "^1.0.7"
     },
     "engines": {
         "node": ">=18"
-    },
-    "packageManager": "npm@10.2.4"
+    }
 }
