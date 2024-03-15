@@ -1,0 +1,32 @@
+[workspace]
+members = ["web", "web/migration"]
+resolver = "2"
+
+[workspace.package]
+authors = ["Nixy <info@nixy.software>"]
+edition = "2021"
+license = "MIT"
+repository = "https://github.com/NixySoftware/supermarket"
+version = "0.1.0"
+
+[workspace.dependencies]
+async-trait = "0.1.77"
+chrono = { version = "0.4.34", features = ["serde"] }
+chrono-tz = { version = "0.6.2", features = ["filter-by-regex"] }
+graphql_client = { version = "0.13.0" }
+reqwest = { version = "0.11.24", features = [
+    "gzip",
+    "json",
+    "native-tls-alpn",
+] }
+serde = "1.0.197"
+serde_json = "1.0.114"
+tokio = { version = "1.36.0", features = ["full"] }
+
+# Defines a size-optimized profile for the WASM bundle in release mode
+[profile.wasm-release]
+inherits = "release"
+opt-level = 'z'
+lto = true
+codegen-units = 1
+panic = "abort"
