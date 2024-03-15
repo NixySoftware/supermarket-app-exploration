@@ -1,3 +1,9 @@
+pub mod actions;
+pub mod components;
+pub mod context;
+pub mod error_template;
+pub mod pages;
+
 use leptos::*;
 use leptos_meta::*;
 use leptos_router::*;

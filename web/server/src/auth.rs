@@ -1,23 +1,41 @@
+use std::ops::Deref;
+
 use async_trait::async_trait;
 use axum_login::{AuthUser, AuthnBackend, UserId};
-use sea_orm::{prelude::Uuid, DatabaseConnection, DbErr, EntityTrait};
-
-use crate::entities::user;
+use supermarket_web_database::entities::user;
+use supermarket_web_database::sea_orm::{prelude::Uuid, DatabaseConnection, DbErr, EntityTrait};
 
 #[derive(Debug, Clone)]
 pub enum Credentials {
     Oidc,
 }
 
-impl AuthUser for user::Model {
+#[derive(Debug, Clone)]
+pub struct UserWrapper(user::Model);
+
+impl AuthUser for UserWrapper {
     type Id = Uuid;
 
     fn id(&self) -> Self::Id {
-        self.id
+        self.0.id
     }
 
     fn session_auth_hash(&self) -> &[u8] {
         todo!()
+    }
+}
+
+impl Deref for UserWrapper {
+    type Target = user::Model;
+
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+
+impl From<user::Model> for UserWrapper {
+    fn from(value: user::Model) -> Self {
+        UserWrapper(value)
     }
 }
 
@@ -42,7 +60,7 @@ impl Backend {
 impl AuthnBackend for Backend {
     type Credentials = Credentials;
     type Error = BackendError;
-    type User = user::Model;
+    type User = UserWrapper;
 
     async fn authenticate(
         &self,
@@ -52,10 +70,9 @@ impl AuthnBackend for Backend {
     }
 
     async fn get_user(&self, user_id: &UserId<Self>) -> Result<Option<Self::User>, Self::Error> {
-        let user = user::Entity::find_by_id(*user_id)
+        Ok(user::Entity::find_by_id(*user_id)
             .one(&self.database)
-            .await?;
-
-        Ok(user)
+            .await?
+            .map(UserWrapper::from))
     }
 }

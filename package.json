@@ -1,6 +1,6 @@
 {
     "name": "@nixysoftware/supermarket-app",
-    "description": "TODO",
+    "description": "Insight into supermarket spending.",
     "author": "Nixy <info@nixy.software>",
     "repository": "github:NixySoftware/supermarket-app",
     "license": "MIT",

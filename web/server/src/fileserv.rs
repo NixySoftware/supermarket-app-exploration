@@ -6,10 +6,9 @@ use axum::{
     response::IntoResponse,
 };
 use leptos::*;
+use supermarket_web_app::App;
 use tower::ServiceExt;
 use tower_http::services::ServeDir;
-
-use crate::app::App;
 
 pub async fn file_and_error_handler(
     uri: Uri,

@@ -1,0 +1,17 @@
+[package]
+name = "supermarket-web-database"
+publish = false
+
+authors.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+version.workspace = true
+
+[dependencies]
+sea-orm = { version = "0.12.0" }
+serde.workspace = true
+
+[features]
+default = []
+server = ["sea-orm/sqlx-postgres", "sea-orm/runtime-tokio-native-tls"]

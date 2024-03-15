@@ -1,29 +1,60 @@
 [workspace]
-members = ["web", "web/migration"]
+members = [
+    "web/app",
+    "web/client",
+    "web/database",
+    "web/migration",
+    "web/server",
+]
 resolver = "2"
 
 [workspace.package]
 authors = ["Nixy <info@nixy.software>"]
 edition = "2021"
 license = "MIT"
-repository = "https://github.com/NixySoftware/supermarket"
+repository = "https://github.com/NixySoftware/supermarket-app"
 version = "0.1.0"
 
 [workspace.dependencies]
 async-trait = "0.1.77"
-chrono = { version = "0.4.34", features = ["serde"] }
-chrono-tz = { version = "0.6.2", features = ["filter-by-regex"] }
-graphql_client = { version = "0.13.0" }
-reqwest = { version = "0.11.24", features = [
-    "gzip",
-    "json",
-    "native-tls-alpn",
-] }
+http = "1.1.0"
+leptos = { version = "0.6.9", features = ["nightly"] }
+leptos_axum = "0.6.9"
+leptos_meta = { version = "0.6.9", features = ["nightly"] }
+leptos_router = { version = "0.6.9", features = ["nightly"] }
 serde = "1.0.197"
-serde_json = "1.0.114"
+thiserror = "1.0.57"
 tokio = { version = "1.36.0", features = ["full"] }
+wasm-bindgen = "0.2.92"
 
-# Defines a size-optimized profile for the WASM bundle in release mode
+[[workspace.metadata.leptos]]
+name = "supermarket-web"
+
+site-root = "target/site"
+site-pkg-dir = "pkg"
+assets-dir = "web/public"
+
+browserquery = "defaults"
+tailwind-input-file = "web/style/tailwind.css"
+tailwind-config-file = "web/tailwind.config.ts"
+
+site-addr = "127.0.0.1:3000"
+reload-port = 3001
+watch = false
+env = "DEV"
+
+end2end-cmd = "npx playwright test"
+end2end-dir = "end2end"
+
+bin-package = "supermarket-web-server"
+bin-features = []
+bin-default-features = false
+
+lib-package = "supermarket-web-client"
+lib-features = []
+lib-default-features = false
+lib-profile-release = "wasm-release"
+
 [profile.wasm-release]
 inherits = "release"
 opt-level = 'z'
