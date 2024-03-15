@@ -8,7 +8,7 @@ TODO
 
 ## Documentation
 
-TODO
+The documentation is available [here](docs/index.md).
 
 ## License
 
