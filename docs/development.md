@@ -6,7 +6,7 @@ TODO
 
 ## Web
 
-## Application
+### Application
 
 ```bash
 # Run application in development mode
