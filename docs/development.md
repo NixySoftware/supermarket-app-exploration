@@ -6,6 +6,13 @@ TODO
 
 ## Web
 
+## Application
+
+```bash
+# Run application in development mode
+cargo leptos watch
+```
+
 ### Database
 
 **Migration**
