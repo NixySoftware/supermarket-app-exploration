@@ -10,8 +10,8 @@ use leptos_router::*;
 
 use crate::components::layout::Layout;
 use crate::error_template::{AppError, ErrorTemplate};
-use crate::pages::auth::signin::SignInPage;
-use crate::pages::auth::signout::SignOutPage;
+use crate::pages::auth::sign_in::SignInPage;
+use crate::pages::auth::sign_out::SignOutPage;
 use crate::pages::home::HomePage;
 
 #[component]
@@ -35,8 +35,8 @@ pub fn App() -> impl IntoView {
                 <Routes>
                     <Route path="" view=HomePage />
 
-                    <Route path="/auth/signin" view=SignInPage />
-                    <Route path="/auth/signout" view=SignOutPage />
+                    <Route path="/auth/sign-in" view=SignInPage />
+                    <Route path="/auth/sign-out" view=SignOutPage />
                 </Routes>
             </Layout>
         </Router>

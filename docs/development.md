@@ -33,7 +33,7 @@ sea-orm-cli migrate -d web/migration reset
 # Status - check the status of all migrations
 sea-orm-cli migrate -d web/migration status
 
-# Up - aapply pending migrations
+# Up - apply pending migrations
 sea-orm-cli migrate -d web/migration up
 
 # Down - rollback applied migrations
@@ -44,5 +44,5 @@ sea-orm-cli migrate -d web/migration down
 
 ```bash
 # Generate entities (apply migrations first)
-sea-orm-cli generate entity -o web/entities/src/entities --with-serde both
+sea-orm-cli generate entity -o web/database/src/entities --with-serde both
 ```

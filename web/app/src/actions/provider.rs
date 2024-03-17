@@ -1,7 +1,7 @@
 use leptos::*;
 use supermarket_web_database::entities::prelude::Provider;
 use supermarket_web_database::entities::provider;
-use supermarket_web_database::sea_orm::EntityTrait;
+use supermarket_web_database::sea_orm::{EntityTrait, QuerySelect};
 
 use crate::context::use_database;
 
@@ -9,9 +9,19 @@ use crate::context::use_database;
 pub async fn providers() -> Result<Vec<provider::Model>, ServerFnError> {
     let database = use_database()?;
 
-    let providers = Provider::find().all(&database).await?;
+    // TODO: figure out if this is the best way to hide columns from the client
 
-    println!("Providers: {:#?}", providers);
-
-    Ok(providers)
+    Provider::find()
+        .select_only()
+        .columns([
+            provider::Column::Id,
+            provider::Column::CreatedAt,
+            provider::Column::UpdatedAt,
+            provider::Column::Name,
+            provider::Column::Slug,
+            provider::Column::Type,
+        ])
+        .all(&database)
+        .await
+        .map_err(ServerFnError::new)
 }

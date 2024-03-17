@@ -4300,7 +4300,9 @@ dependencies = [
  "leptos_axum",
  "leptos_meta",
  "leptos_router",
+ "log",
  "supermarket-web-database",
+ "tailwind_fuse",
  "thiserror",
 ]
 
@@ -4413,6 +4415,28 @@ checksum = "a75fb188eb626b924683e3b95e3a48e63551fcfb51949de2f06a9d91dbee93c9"
 dependencies = [
  "core-foundation-sys",
  "libc",
+]
+
+[[package]]
+name = "tailwind_fuse"
+version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d483287aab245271f20697b9b93a35cee00abb815d0bea75e04ad3508b203770"
+dependencies = [
+ "nom",
+ "tailwind_fuse_macro",
+]
+
+[[package]]
+name = "tailwind_fuse_macro"
+version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "131f0e65e3aa2985cbd3358d5a9bf23d6afe5ae15fdb105e97ad086016bc6f79"
+dependencies = [
+ "darling 0.20.8",
+ "proc-macro2",
+ "quote",
+ "syn 2.0.50",
 ]
 
 [[package]]

@@ -68,11 +68,15 @@ impl MigrationTrait for Migration {
         manager
             .create_table(
                 BaseTable::create(Provider::Table)
+                    .col(ColumnDef::new(Provider::Name).string_len(256).not_null())
+                    .col(ColumnDef::new(Provider::Slug).string_len(256))
                     .col(
                         ColumnDef::new(Provider::Type)
                             .custom(ProviderType::Table)
                             .not_null(),
                     )
+                    .col(ColumnDef::new(Provider::ClientId).text())
+                    .col(ColumnDef::new(Provider::ClientSecret).text())
                     .to_owned(),
             )
             .await?;
@@ -184,7 +188,11 @@ enum ProviderType {
 enum Provider {
     Table,
 
+    Name,
+    Slug,
     Type,
+    ClientId,
+    ClientSecret,
 }
 
 #[derive(DeriveIden)]
