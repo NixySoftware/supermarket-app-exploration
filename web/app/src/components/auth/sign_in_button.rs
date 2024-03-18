@@ -2,7 +2,7 @@ use leptos::*;
 use log::info;
 use supermarket_web_database::entities::provider;
 
-use crate::components::ui::button::{Button, ButtonVariant};
+use crate::components::shadcn_ui::button::{Button, ButtonVariant};
 
 #[component]
 pub fn SignInButton(provider: provider::Model) -> impl IntoView {
