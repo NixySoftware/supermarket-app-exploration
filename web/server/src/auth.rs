@@ -6,9 +6,7 @@ use supermarket_web_database::entities::user;
 use supermarket_web_database::sea_orm::{prelude::Uuid, DatabaseConnection, DbErr, EntityTrait};
 
 #[derive(Debug, Clone)]
-pub enum Credentials {
-    Oidc,
-}
+pub enum Credentials {}
 
 #[derive(Debug, Clone)]
 pub struct UserWrapper(user::Model);
@@ -64,7 +62,7 @@ impl AuthnBackend for Backend {
 
     async fn authenticate(
         &self,
-        credentials: Self::Credentials,
+        _credentials: Self::Credentials,
     ) -> Result<Option<Self::User>, Self::Error> {
         todo!()
     }

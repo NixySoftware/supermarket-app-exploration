@@ -1,3 +1,6 @@
+// TODO: remove once this Leptos bug has been fixed
+#![allow(clippy::empty_docs)]
+
 pub mod actions;
 pub mod components;
 pub mod context;
