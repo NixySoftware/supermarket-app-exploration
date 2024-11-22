@@ -7,7 +7,7 @@
     "private": true,
     "scripts": {},
     "devDependencies": {
-        "@types/node": "^20.11.28",
+        "@types/node": "^22.0.0",
         "lucide-static": "^0.460.0",
         "next-auth": "github:nextauthjs/next-auth",
         "prettier": "^3.2.5",
