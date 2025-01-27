@@ -15,7 +15,7 @@ axum-login = "0.14.0"
 dotenvy = "0.15.7"
 leptos = { workspace = true, features = ["ssr"] }
 leptos_axum.workspace = true
-openidconnect = "3.5.0"
+openidconnect = "4.0.0"
 supermarket-web-app = { path = "../app", default-features = false, features = [
     "ssr",
 ] }
