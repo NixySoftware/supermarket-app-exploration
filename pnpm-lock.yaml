@@ -7,7 +7,7 @@ settings:
 devDependencies:
   '@types/node':
     specifier: ^22.0.0
-    version: 22.13.4
+    version: 22.13.7
   lucide-static:
     specifier: ^0.473.0
     version: 0.473.0
@@ -104,8 +104,8 @@ packages:
     dev: true
     optional: true
 
-  /@types/node@22.13.4:
-    resolution: {integrity: sha512-ywP2X0DYtX3y08eFVx5fNIw7/uIv8hYUKgXoK8oayJlLnKcRfEYCxWMVE1XagUdVtCJlZT1AU4LXEABW+L1Peg==}
+  /@types/node@22.13.7:
+    resolution: {integrity: sha512-oU2q+BsQldB9lYxHNp/5aZO+/Bs0Usa74Abo9mAKulz4ahQyXRHK6UVKYIN8KSC8HXwhWSi7b49JnX+txuac0w==}
     dependencies:
       undici-types: 6.20.0
     dev: true
